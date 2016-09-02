@@ -1484,7 +1484,7 @@ Internals
 
    .. Docstring generated from Julia source
 
-   Takes the expression ``x`` and returns an equivalent expression in lowered form.
+   Takes the expression ``x`` and returns an equivalent expression in lowered form. See also :func:`code_lowered`\ .
 
 .. function:: code_lowered(f, types)
 
