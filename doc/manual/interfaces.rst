@@ -18,13 +18,13 @@ Required methods                                           Brief description
 :func:`next(iter, state) <next>`                           Returns the current item and the next state
 :func:`done(iter, state) <done>`                           Tests if there are any items remaining
 **Important optional methods**    **Default definition**   **Brief description**
-:func:`eltype(IterType) <eltype>` ``Any``                  The type the items returned by :func:`next`
+:func:`eltype(IterType) <eltype>` ``Any``                  The type of the items returned by :func:`next`
 :func:`length(iter) <length>`     (*undefined*)            The number of items, if known
 ================================= ======================== ===========================================
 
 Sequential iteration is implemented by the methods :func:`start`, :func:`done`, and :func:`next`. Instead of mutating objects as they are iterated over, Julia provides these three methods to keep track of the iteration state externally from the object. The :func:`start(iter) <start>` method returns the initial state for the iterable object ``iter``. That state gets passed along to :func:`done(iter, state) <done>`, which tests if there are any elements remaining, and :func:`next(iter, state) <next>`, which returns a tuple containing the current element and an updated ``state``. The ``state`` object can be anything, and is generally considered to be an implementation detail private to the iterable object.
 
-Any object defines these three methods is iterable and can be used in the :ref:`many functions that rely upon iteration <stdlib-collections-iteration>`. It can also be used directly in a ``for`` loop since the syntax::
+Any object that defines these three methods is iterable and can be used in the :ref:`many functions that rely upon iteration <stdlib-collections-iteration>`. It can also be used directly in a ``for`` loop since the syntax::
 
     for i in iter   # or  "for i = iter"
         # body
